@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding-top: 40px;
-            background-image: url('https://www.iush.edu.co/Estudiantes/imagenes/logoIUSH.png');
+            background-image: url('https://miro.medium.com/max/1400/1*yHZKuUPofUf39CpZ6frmxw.png');
             background-repeat: no-repeat;
             background-size: cover;       /* Hace que la imagen cubra todo el fondo */
             background-position: center;  /* Centra la imagen */
@@ -48,30 +48,21 @@
     </style>
 
 </head>
-<body> 
-    
-    
+<body>   
     <h1>Piedra, Papel o Tijeras</h1>
-
     <p>Elige una opción:</p>
-
     <button onclick="jugar('Piedra')">🪨 Piedra</button>
     <button onclick="jugar('Papel')">📄 Papel</button>
     <button onclick="jugar('Tijeras')">✂ Tijeras</button>
-
     <div id="elecciones"></div>
     <div id="resultado"></div>
-
     <script>
         function jugar(eleccionJugador) {
             const opciones = ["Piedra", "Papel", "Tijeras"];
             const eleccionPC = opciones[Math.floor(Math.random() * 3)];
-
             document.getElementById("elecciones").innerHTML =
                 "Tú elegiste: <b>" + eleccionJugador + "</b><br>La computadora eligió: <b>" + eleccionPC + "</b>";
-
             let resultado = "";
-
             if (eleccionJugador === eleccionPC) {
                 resultado = "Empate 🤝";
             } 
@@ -85,11 +76,9 @@
             else {
                 resultado = "Perdiste 😢";
             }
-
             document.getElementById("resultado").innerHTML = resultado;
         }
     </script>
     </div>
-
 </body>
 </html>
