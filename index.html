@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Piedra Papel o Tijeras</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+            background: #f2f2f2;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 12px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background-color: #45a049;
+        }
+
+        #elecciones, #resultado {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Piedra, Papel o Tijeras</h1>
+
+    <p>Elige una opción:</p>
+
+    <button onclick="jugar('Piedra')">🪨 Piedra</button>
+    <button onclick="jugar('Papel')">📄 Papel</button>
+    <button onclick="jugar('Tijeras')">✂ Tijeras</button>
+
+    <div id="elecciones"></div>
+    <div id="resultado"></div>
+
+    <script>
+        function jugar(eleccionJugador) {
+            const opciones = ["Piedra", "Papel", "Tijeras"];
+            const eleccionPC = opciones[Math.floor(Math.random() * 3)];
+
+            document.getElementById("elecciones").innerHTML =
+                "Tú elegiste: <b>" + eleccionJugador + "</b><br>La computadora eligió: <b>" + eleccionPC + "</b>";
+
+            let resultado = "";
+
+            if (eleccionJugador === eleccionPC) {
+                resultado = "Empate 🤝";
+            } 
+            else if (
+                (eleccionJugador === "Piedra" && eleccionPC === "Tijeras") ||
+                (eleccionJugador === "Papel" && eleccionPC === "Piedra") ||
+                (eleccionJugador === "Tijeras" && eleccionPC === "Papel")
+            ) {
+                resultado = "¡Ganaste! 🎉";
+            } 
+            else {
+                resultado = "Perdiste 😢";
+            }
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+
+</body>
+</html>
